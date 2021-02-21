@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TP3_Adrien_Guedes</string>
+    <string name="hint_image">Image</string>
+    <string name="hint_name">Nom</string>
+    <string name="hint_phone">Téléphone</string>
+    <string name="hint_WebSite">Website</string>
+    <string name="save">Enregister</string>
+    <string name="hint_About">a propos de moi</string>
+    <string name="hint_Adress">adress</string>
+    <string name="addTitle">Nouveau Voisin</string>
+    <string name="listTitle">Liste des Voisins</string>
+    <string name="error_image">url invalide</string>
+    <string name="error_image_empty">l\'image doit être renseigné</string>
+    <string name="error_name">le nom doit être renseigné</string>
+    <string name="error_phone">numéro invalide</string>
+    <string name="error_WebSite">site obligatoire</string>
+    <string name="error_About">description obligatoire</string>
+    <string name="error_Adress">adresse invalide</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TP3_Adrien_Guedes</string>
+    <string name="hint_image">Image</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_WebSite">Website</string>
+    <string name="save">Save</string>
+    <string name="hint_About">about me</string>
+    <string name="hint_Adress">adress</string>
+    <string name="addTitle">New neighbor</string>
+    <string name="listTitle">Neighbor list</string>
+    <string name="error_image">invalid URL</string>
+    <string name="error_image_empty">image cannot be null</string>
+    <string name="error_name">name cannot be null</string>
+    <string name="error_phone">invalid phone number</string>
+    <string name="error_WebSite">site obligatoire</string>
+    <string name="error_About">description obligatoire</string>
+    <string name="error_Adress">adresse invalide</string>
+</resources>
