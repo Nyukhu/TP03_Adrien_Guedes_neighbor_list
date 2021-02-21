@@ -14,7 +14,7 @@
     <string name="error_image_empty">image cannot be null</string>
     <string name="error_name">name cannot be null</string>
     <string name="error_phone">invalid phone number</string>
-    <string name="error_WebSite">site obligatoire</string>
-    <string name="error_About">description obligatoire</string>
-    <string name="error_Adress">adresse invalide</string>
+    <string name="error_WebSite">site cannot be null</string>
+    <string name="error_About">description cannot be null</string>
+    <string name="error_Adress">invalid address</string>
 </resources>

@@ -34,28 +34,28 @@ class AddNeighbourFragment  : Fragment(){
         form {
             useRealTimeValidation(disableSubmit = true)
             input(binding.imageURLInput) {
-                isNotEmpty().description("image manquante")
-                isUrl().description("url invalide")
+                isNotEmpty().description(R.string.error_image_empty)
+                isUrl().description(R.string.error_image)
             }
 
             input(binding.nameInput) {
-                isNotEmpty().description("nom manquant")
+                isNotEmpty().description(R.string.error_name)
             }
 
             input(binding.phoneInput) {
-                isNotEmpty().description("téléphone requis")
-                matches("^(0)\\s*[1-9](?:[\\s.-]*\\d{2}){4}\$").description("numéro invalide")
+                isNotEmpty().description(R.string.error_phone)
+                matches("^(0)\\s*[1-9](?:[\\s.-]*\\d{2}){4}\$").description(R.string.error_phone)
             }
 
             input(binding.WebsiteInput) {
-                isNotEmpty().description("site web obligatoire")
+                isNotEmpty().description(R.string.error_WebSite)
             }
             input(binding.AdressInput) {
-                isNotEmpty().description("adresse requise")
-                isEmail().description("adresse invalide")
+                isNotEmpty().description(R.string.error_Adress)
+                isEmail().description(R.string.error_Adress)
             }
             input(binding.AboutMeInput) {
-                isNotEmpty().description("description requise")
+                isNotEmpty().description(R.string.error_About)
                 length().atMost(30).description("30 carac. max")
             }
 
