@@ -1,24 +1,20 @@
-package com.gadrien456.gmail.tp3_adrien_guedes.fragments
+package com.gadrien456.gmail.tp3_adrien_guedes.ui.fragments
 
+import android.app.Application
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.afollestad.vvalidator.form
 import com.gadrien456.gmail.tp3_adrien_guedes.NavigationListener
 import com.gadrien456.gmail.tp3_adrien_guedes.R
-import com.gadrien456.gmail.tp3_adrien_guedes.data.NeighborRepository
 import com.gadrien456.gmail.tp3_adrien_guedes.databinding.AddNeighborBinding
-import com.gadrien456.gmail.tp3_adrien_guedes.databinding.ListNeighborsFragmentBinding
 import com.gadrien456.gmail.tp3_adrien_guedes.models.Neighbor
-import kotlinx.android.synthetic.main.add_neighbor.*
-import kotlinx.android.synthetic.main.list_neighbors_fragment.view.*
+import com.gadrien456.gmail.tp3_adrien_guedes.repositories.NeighborRepository
+import kotlin.random.Random
 
-class AddNeighbourFragment  : Fragment(){
+class AddNeighbourFragment : Fragment() {
     private lateinit var binding: AddNeighborBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,24 +55,27 @@ class AddNeighbourFragment  : Fragment(){
                 length().atMost(30).description("30 carac. max")
             }
 
-            submitWith( binding.saveBtn) {
+            submitWith(binding.saveBtn) {
                 var image = binding.imageURLInput.text.toString()
                 var name = binding.nameInput.text.toString()
                 var phone = binding.phoneInput.text.toString()
                 var website = binding.WebsiteInput.text.toString()
                 var adress = binding.AdressInput.text.toString()
                 var about = binding.AboutMeInput.text.toString()
-                var id = NeighborRepository.getInstance().getNeighbours().count()
+                val application: Application = activity?.application ?: return@submitWith
+                var id = NeighborRepository.getInstance(application).getNeighbours().value?.count()?.toLong()
+                if (id == null) {
+                    id = Random.nextLong(0, 10000)
+                }
 
                 println(image)
                 val neighbor = Neighbor(
-                    id.toLong(), name,image,adress,phone,about,false,website
+                    id, name, image, adress, phone, about, false, website
                 )
 
-                NeighborRepository.getInstance().dataSource.createNeighbour(neighbor)
+                NeighborRepository.getInstance(application).dataSource.createNeighbour(neighbor)
                 (activity as? NavigationListener)?.let {
                     it.showFragment(ListNeighborsFragment())
-
                 }
             }
         }

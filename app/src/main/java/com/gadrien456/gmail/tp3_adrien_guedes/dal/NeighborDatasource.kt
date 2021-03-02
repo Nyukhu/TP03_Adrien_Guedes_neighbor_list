@@ -1,5 +1,6 @@
-package com.gadrien456.gmail.tp3_adrien_guedes.data.datasource
+package com.gadrien456.gmail.tp3_adrien_guedes.dal
 
+import androidx.lifecycle.LiveData
 import com.gadrien456.gmail.tp3_adrien_guedes.models.Neighbor
 
 interface NeighborDatasource {
@@ -7,13 +8,13 @@ interface NeighborDatasource {
      * Get all my Neighbors
      * @return [List]
      */
-    val neighbours: MutableList<Neighbor>
+    val neighbours: LiveData<List<Neighbor>>
 
     /**
      * Deletes a neighbor
      * @param neighbor : Neighbor
      */
-    fun deleteNeighbour(neighbor: Neighbor):Int
+    fun deleteNeighbour(neighbor: Neighbor): Int
 
     /**
      * Create a neighbour
@@ -33,4 +34,3 @@ interface NeighborDatasource {
      */
     fun updateNeighbour(neighbor: Neighbor)
 }
-

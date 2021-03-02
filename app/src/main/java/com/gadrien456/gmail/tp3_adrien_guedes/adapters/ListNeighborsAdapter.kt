@@ -1,7 +1,7 @@
 package com.gadrien456.gmail.tp3_adrien_guedes.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -24,11 +24,14 @@ class ListNeighborsAdapter(
         val neighbour: Neighbor = mNeighbours[position]
         // Display Neighbour Name
         holder.binding.itemListDeleteButton.setOnClickListener {
+
             callback.onDeleteNeighbor(neighbour)
         }
+
+// Display Neighbour Avatar
+        Log.d("item", neighbour.name)
         holder.binding.itemListName.text = neighbour.name
         val context = holder.binding.root.context
-// Display Neighbour Avatar
         Glide.with(context)
             .load(neighbour.avatarUrl)
             .apply(RequestOptions.circleCropTransform())
@@ -39,7 +42,11 @@ class ListNeighborsAdapter(
     }
 
     override fun getItemCount(): Int {
-        return mNeighbours.size
+        var itemCount = 0
+        if (mNeighbours != null) {
+            itemCount = mNeighbours!!.size
+        }
+        return itemCount
     }
 
     class ViewHolder(val binding: NeighborItemBinding) :
